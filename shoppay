@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+public class shoppay {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));		
+		int n = Integer.parseInt(br.readLine());
+		Queue<Integer> line = new LinkedList<Integer>();
+		ArrayList<ArrayList<Integer>> biglist = new ArrayList<ArrayList<Integer>>();
+		for(int i = 0; i<n; i++) {
+			ArrayList<Integer> a1 = new ArrayList<Integer>();
+			biglist.add(a1);
+		}
+		ArrayList<String> input = new ArrayList<String>();
+		String str="";
+		while((str=br.readLine())!=null){
+		    input.add(str);
+		}
+		for(int i = 0; i<input.size(); i++) {
+			StringTokenizer st = new StringTokenizer(input.get(i));
+			String letter = st.nextToken();
+			int value = Integer.parseInt(st.nextToken());
+			if(letter.equals("C")){
+				line.add(value);
+			}
+			else {
+				int get = line.poll();
+				biglist.get(value-1).add(get);
+			}
+		}
+		for(int i = 0; i<n; i++) {
+			int z = biglist.get(i).size();
+			ArrayList<Integer> current = biglist.get(i);
+			System.out.println();
+			for(int k = 0; k<z; k++) {
+				if(k==z-1) {
+					System.out.print(current.get(k));
+				}
+				else {
+					System.out.print(current.get(k)+" ");
+				}
+			}
+		}
+		
+	}
+}
+
