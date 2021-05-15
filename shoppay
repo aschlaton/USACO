@@ -31,6 +31,7 @@ public class shoppay {
 			int z = biglist.get(i).size();
 			ArrayList<Integer> current = biglist.get(i);
 			System.out.println();
+			System.out.print(current.size()+" ");
 			for(int k = 0; k<z; k++) {
 				if(k==z-1) {
 					System.out.print(current.get(k));
